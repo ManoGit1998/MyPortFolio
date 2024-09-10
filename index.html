@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mano's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: rgb(82, 46, 126);
+            color: white;
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgb(18, 52, 40);
+        }
+
+        nav .left {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: rgb(154, 197, 53);
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            text-align: left;
+        }
+
+        .leftSection {
+            max-width: 50%;
+        }
+
+        .leftSection h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: rgb(154, 197, 53);
+        }
+
+        .leftSection p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            background-color: #2B124A;
+            /* Dark purple background */
+            color: white;
+            /* White text */
+            border: 2px solid white;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn a {
+            text-decoration: none;
+            /* Remove underline */
+            color: inherit;
+            /* Inherit the color from the parent */
+            font-weight: 600;
+            /* Make the font a bit bolder */
+        }
+
+        .btn:hover {
+            background-color: deepskyblue;
+            /* Change background color on hover */
+            color: #2B124A;
+            /* Change text color on hover */
+        }
+
+        .btn:hover a {
+            color: #2B124A;
+            /* Change link color on hover to match the button text */
+        }
+
+
+        .rightSection img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        hr {
+            border: 0;
+            height: 2px;
+            background-color: deepskyblue;
+            margin: 50px 0;
+        }
+
+        .secondSection {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .secondSection h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .secondSection .work-experience {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .work-item {
+            background: white;
+            color: black;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            width: 30%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .work-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .work-item img {
+            width: 50px;
+            margin-bottom: 15px;
+        }
+
+        .work-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .work-item p {
+            font-size: 0.9rem;
+            color: grey;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .footer-content div {
+            flex: 1;
+            margin: 10px;
+            min-width: 200px;
+        }
+
+        .footer-content h3,
+        .footer-content h4 {
+            color: #f4a261;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .footer-content p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .footer-content ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-content ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-content ul li a:hover {
+            color: #f4a261;
+        }
+
+        .footer-rights {
+            text-align: center;
+            padding: 15px;
+            background-color: #222;
+            font-size: 14px;
+            margin-top: 20px;
+            border-top: 1px solid #444;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Mano's Portfolio</div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="firstSection">
+            <div class="leftSection">
+                <h1>Hi, I'm <span class="purple">Manoranjan</span></h1>
+                <p>and I am a <span id="element"></span></p>
+                <div class="buttons">
+                    <button class="btn"><a href="https://github.com/ManoGit1998" target="_blank">Visit
+                            Github</a></button>
+                    <button class="btn"><a href="https://www.linkedin.com/in/manoranjan-nayak-b55169130/"
+                            target="_blank">Visit LinkedIn</a></button>
+                    <button class="btn"><a href="Mano_Resume (1).pdf" target="_blank" download="ManoResume.pdf">Download
+                            Resume</a></button>
+                </div>
+
+            </div>
+            <div class="rightSection">
+                <img src="bg.png" alt="Profile Image">
+            </div>
+        </section>
+        <hr>
+        <section class="secondSection">
+            <h2>Work Experience</h2>
+            <div class="work-experience">
+                <div class="work-item">
+                    <img src="java.png" alt="JAVA">
+                    <h3>Java Developer (2019-2022)</h3>
+                    <p>Developed and maintained Java-based applications, ensuring high performance and responsiveness.
+                        Worked on backend services using Spring Boot, Hibernate, and RESTful APIs. Collaborated with
+                        cross-functional teams to deliver high-quality software solutions.</p>
+                </div>
+                <div class="work-item">
+                    <img src="ui.png" alt="Rumango">
+                    <h3>UI Developer (2019-2022)</h3>
+                    <p>Designed and implemented user interfaces using HTML, CSS, and JavaScript. Ensured responsiveness
+                        and cross-browser compatibility. Worked closely with designers and backend developers to create
+                        seamless user experiences.</p>
+                </div>
+                <div class="work-item">
+                    <img src="html-5.png" alt="Rumango">
+                    <h3>HTML Developer (2019-2022)</h3>
+                    <p>Specialized in building and optimizing web pages using HTML5, CSS3, and related technologies.
+                        Focused on clean, semantic code and adhered to web standards. Collaborated with UI/UX designers
+                        to translate mockups into functional web pages.</p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Mano's Developer Portfolio</h3>
+                <p>Welcome to my professional portfolio. Here, you can explore my projects, skills, and experiences.
+                    Feel free to connect with me through the links below.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Follow Me</h4>
+                <ul>
+                    <li><a href="https://github.com/ManoGit1998" target="_blank">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/manoranjan-nayak-b55169130/" target="_blank">LinkedIn</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li>Email: <a href="mailto:itsmanoranjan1998@gmail.com">itsmanoranjan1998@gmail.com</a></li>
+                    <li>Phone: +91-7978402298</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-rights">Copyright &#169; 2024 manosportfolio.com | All Rights Reserved</div>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Java Developer', 'Ui Developer', 'Mobile App Developer'],
+            typeSpeed: 50,
+        });
+    </script>
+</body>
+
+</html>

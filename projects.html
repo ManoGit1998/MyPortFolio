@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #522E7E, #ED780B);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .intro {
+            margin-top: 40px;
+            text-align: center;
+            color: #fff;
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+
+        hr {
+            border: 0;
+            height: 2px;
+            background-color: #fff;
+            margin: 20px 0;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .projects {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            padding: 30px 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            width: 280px;
+            margin: 20px;
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card h3 {
+            padding: 20px;
+            font-size: 1.8rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 15px 15px 0 0;
+        }
+
+        .project-list {
+            display: none;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 0 0 15px 15px;
+        }
+
+        .project-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .project-list ul li {
+            padding: 12px 0;
+            font-size: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: color 0.2s ease;
+        }
+
+        .project-list ul li:last-child {
+            border-bottom: none;
+        }
+
+        .project-list ul li:hover {
+            color: #FFD700;
+        }
+
+        .project-details {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 30px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            color: #fff;
+            text-align: left;
+        }
+
+        .project-details h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .project-details p {
+            margin-bottom: 10px;
+        }
+
+        .project-details span {
+            color: #FFD700;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="intro">Explore My Projects</h1>
+    <hr>
+
+    <div class="projects">
+        <div class="card" onclick="toggleProjects('java-projects')">
+            <h3>Java</h3>
+            <div class="project-list" id="java-projects">
+                <ul>
+                    <li onclick="showDetails(event, 'Java Project 1', '2024-07-20', 'Java, Spring Boot, Hibernate')">Java Project 1</li>
+                    <li onclick="showDetails(event, 'Java Project 2', '2024-08-15', 'Java, Microservices')">Java Project 2</li>
+                    <li onclick="showDetails(event, 'Java Project 3', '2024-09-01', 'Java, Multithreading')">Java Project 3</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggleProjects('html-projects')">
+            <h3>HTML & CSS</h3>
+            <div class="project-list" id="html-projects">
+                <ul>
+                    <li onclick="showDetails(event, 'HTML Project A', '2024-07-10', 'HTML5, CSS3, JavaScript')">HTML Project A</li>
+                    <li onclick="showDetails(event, 'HTML Project B', '2024-08-05', 'HTML5, CSS3, Bootstrap')">HTML Project B</li>
+                    <li onclick="showDetails(event, 'HTML Project C', '2024-09-02', 'HTML5, CSS3, Flexbox')">HTML Project C</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggleProjects('python-projects')">
+            <h3>Python</h3>
+            <div class="project-list" id="python-projects">
+                <ul>
+                    <li onclick="showDetails(event, 'Python Project X', '2024-07-05', 'Python, Flask, SQLAlchemy')">Python Project X</li>
+                    <li onclick="showDetails(event, 'Python Project Y', '2024-08-12', 'Python, Django, PostgreSQL')">Python Project Y</li>
+                    <li onclick="showDetails(event, 'Python Project Z', '2024-09-03', 'Python, Pandas, Matplotlib')">Python Project Z</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-details" id="project-details">
+        <h3 id="project-title"></h3>
+        <p><strong>Date:</strong> <span id="project-date"></span></p>
+        <p><strong>Technology Used:</strong> <span id="project-tech"></span></p>
+    </div>
+
+    <script>
+        function toggleProjects(projectId) {
+            const allProjectLists = document.querySelectorAll('.project-list');
+            allProjectLists.forEach(projectList => {
+                if (projectList.id === projectId) {
+                    projectList.style.display = projectList.style.display === 'block' ? 'none' : 'block';
+                } else {
+                    projectList.style.display = 'none';
+                }
+            });
+
+            // Hide project details when switching categories
+            document.getElementById('project-details').style.display = 'none';
+        }
+
+        function showDetails(event, title, date, tech) {
+            event.stopPropagation();
+            document.getElementById('project-title').textContent = title;
+            document.getElementById('project-date').textContent = date;
+            document.getElementById('project-tech').textContent = tech;
+            document.getElementById('project-details').style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
